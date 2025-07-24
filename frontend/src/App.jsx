@@ -7,6 +7,8 @@ import Hero from "./components/hero/Hero";
 import Main from "./components/main/main";
 import Footer from "./components/footer/footer";
 import ScrollToTop from "./components/scroll/ScrollToTop";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Cart from "./components/main/Cart";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -20,25 +22,24 @@ function App() {
         theme={theme}
       >
         <CssBaseline />
-
-        <Header1 />
-        <Header2 />
-        <Header3 />
-
-        <Box
-          bgcolor={
-            // @ts-ignore
-            theme.palette.bg.main
-          }
-        >
-          <Hero />
-          <Main />
-        </Box>
-      
-        <Footer />
-
-
-        <ScrollToTop />
+        <Router>
+          <Header1 />
+          <Header2 />
+          <Header3 />
+          <Box
+            bgcolor={
+              // @ts-ignore
+              theme.palette.bg.main
+            }
+          >
+            <Routes>
+              <Route path="/" element={<><Hero /><Main /></>} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </Box>
+          <Footer />
+          <ScrollToTop />
+        </Router>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

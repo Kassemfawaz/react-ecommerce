@@ -18,6 +18,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   flexGrow: 0.4,
@@ -170,7 +171,7 @@ const Header2 = () => {
       </Search>
 
       <Stack direction={"row"} alignItems={"center"}>
-        <IconButton aria-label="cart">
+        <IconButton aria-label="cart" component={Link} to="/cart">
           <StyledBadge badgeContent={4} color="primary">
             <ShoppingCartIcon />
           </StyledBadge>

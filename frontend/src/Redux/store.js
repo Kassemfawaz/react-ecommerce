@@ -1,17 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
 // Or from '@reduxjs/toolkit/query/react'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { productApi } from "./product"
+// This file is no longer needed since backend API is removed.
 
 export const store = configureStore({
   reducer: {
     // Add the generated reducer as a specific top-level slice
-    [productApi.reducerPath]: productApi.reducer,
+    // [productApi.reducerPath]: productApi.reducer, // This line is removed
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(productApi.middleware),
+    getDefaultMiddleware().concat( // This line is removed
+      // productApi.middleware // This line is removed
+    ),
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
